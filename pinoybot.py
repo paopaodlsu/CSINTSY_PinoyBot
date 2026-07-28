@@ -29,13 +29,6 @@ with open(CLASSIFIER_PATH, "rb") as f:
 with open(VECTORIZER_PATH, "rb") as f:
     vectorizer = pickle.load(f)
 
-
-# -------------------------------------------------------
-# Feature Extraction
-# -------------------------------------------------------
-# extract_features is now imported from features.py (see above)
-
-
 # -------------------------------------------------------
 # Main Prediction Function
 # -------------------------------------------------------

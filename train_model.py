@@ -26,11 +26,6 @@ from sklearn.model_selection import train_test_split
 from features import extract_features
 
 
-# -------------------------------------------------------
-# Feature Extraction
-# -------------------------------------------------------
-# extract_features is now imported from features.py (see above)
-
 # Load Dataset
 print("Loading dataset...")
 df = pd.read_csv("67.csv")
