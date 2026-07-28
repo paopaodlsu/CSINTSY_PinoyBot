@@ -9,7 +9,7 @@ Model training and feature extraction should be implemented in a separate script
 """
 
 import os
-import cloudpickle
+import pickle
 from typing import List
 
 
@@ -23,10 +23,10 @@ CLASSIFIER_PATH = os.path.join(BASE_DIR, "classifier.pkl")
 VECTORIZER_PATH = os.path.join(BASE_DIR, "vectorizer.pkl")
 
 with open(CLASSIFIER_PATH, "rb") as f:
-    classifier = cloudpickle.load(f)
+    classifier = pickle.load(f)
 
 with open(VECTORIZER_PATH, "rb") as f:
-    vectorizer = cloudpickle.load(f)
+    vectorizer = pickle.load(f)
 
 
 # -------------------------------------------------------

@@ -11,7 +11,7 @@ Output:
     vectorizer.pkl
 """
 
-import cloudpickle
+import pickle
 import pandas as pd
 
 from sklearn.ensemble import RandomForestClassifier
@@ -82,7 +82,7 @@ def extract_features(word):
 
 print("Loading dataset...")
 
-df = pd.read_excel("67.xlsx")
+df = pd.read_csv("67.csv")
 
 df = df.dropna(subset=["word", "label"])
 
@@ -221,10 +221,10 @@ print(classification_report(y_test, test_pred))
 # -------------------------------------------------------
 
 with open("classifier.pkl", "wb") as f:
-    cloudpickle.dump(classifier, f)
+    pickle.dump(classifier, f)
 
 with open("vectorizer.pkl", "wb") as f:
-    cloudpickle.dump(vectorizer, f)
+    pickle.dump(vectorizer, f)
 
 print("\nSaved:")
 print("classifier.pkl")
