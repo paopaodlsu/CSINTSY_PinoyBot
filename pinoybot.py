@@ -87,7 +87,6 @@ def extract_features(word):
 # Main Prediction Function
 # -------------------------------------------------------
 
-# Main tagging function
 def tag_language(tokens: List[str]) -> List[str]:
     """
     Predict the language tag of every token.
@@ -100,20 +99,14 @@ def tag_language(tokens: List[str]) -> List[str]:
     -------
     list[str]
     """
-    # 1. Load your trained model from disk (e.g., using pickle or joblib)
-    #    Example: with open('trained_model.pkl', 'rb') as f: model = pickle.load(f)
-    #    (Replace with your actual model loading code)
 
     if not tokens:
         return []
 
-    # 3. Use the model to predict the tags for each token
-    #    Example: predicted = model.predict(features)
+    features = [extract_features(token) for token in tokens]
 
-    # 4. Convert the predictions to a list of strings ("ENG", "FIL", or "OTH")
-    #    Example: tags = [str(tag) for tag in predicted]
+    X = vectorizer.transform(features)
 
-    # 5. Return the list of tags
-    #    return tags
+    predictions = classifier.predict(X)
 
     return predictions.tolist()
