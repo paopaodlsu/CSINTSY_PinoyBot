@@ -1,10 +1,10 @@
 """
 train_model.py
 
-Trains PinoyBot's language identification model.
+Trains PinoyBot's language identification model
 
 Input:
-    67.xlsx
+    67.csv
 
 Output:
     classifier.pkl
