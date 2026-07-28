@@ -45,7 +45,7 @@ def extract_features(word):
         "ends_vowel":
             len(word) > 0 and word[-1].lower() in "aeiou",
 
-         #FIL affixes
+        #FIL affixes
         "contains_ng": "ng" in word.lower(),
         "contains_mag": "mag" in word.lower(),
         "contains_nag": "nag" in word.lower(),
