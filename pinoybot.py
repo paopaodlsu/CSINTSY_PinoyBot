@@ -11,7 +11,6 @@ Model training and feature extraction should be implemented in a separate script
 import os
 import pickle
 from typing import List
-import pandas as pd
 
 
 # -------------------------------------------------------
@@ -109,7 +108,7 @@ def extract_features(word):
 
 def tag_language(tokens: List[str]) -> List[str]:
     """
-    Predicts the language tag for every token.
+    Predict the language tag of every token.
 
     Parameters
     ----------
@@ -117,49 +116,22 @@ def tag_language(tokens: List[str]) -> List[str]:
 
     Returns
     -------
-    List[str]
-
-    Possible labels:
-        ENG
-        FIL
-        CS
-        OTH
+    list[str]
     """
+    # 1. Load your trained model from disk (e.g., using pickle or joblib)
+    #    Example: with open('trained_model.pkl', 'rb') as f: model = pickle.load(f)
+    #    (Replace with your actual model loading code)
 
-    if len(tokens) == 0:
+    if not tokens:
         return []
 
-    features = [extract_features(token) for token in tokens]
+    # 3. Use the model to predict the tags for each token
+    #    Example: predicted = model.predict(features)
 
-    X = vectorizer.transform(features)
+    # 4. Convert the predictions to a list of strings ("ENG", "FIL", or "OTH")
+    #    Example: tags = [str(tag) for tag in predicted]
 
-    predictions = classifier.predict(X)
+    # 5. Return the list of tags
+    #    return tags
 
     return predictions.tolist()
-
-
-# -------------------------------------------------------
-# Example Usage
-# -------------------------------------------------------
-
-if __name__ == "__main__":
-
-    # Read the raw tokens
-    df = pd.read_excel("raw_tokens.xlsx")
-
-    # Get all words
-    tokens = df["word"].fillna("").astype(str).tolist()
-
-    # Predict labels
-    predictions = tag_language(tokens)
-
-    # Save predictions
-    df["predicted_label"] = predictions
-
-    output_file = "predictions.xlsx"
-
-    df.to_excel(output_file, index=False)
-
-    print(f"Predictions saved to {output_file}")
-
-    print(df.head())
