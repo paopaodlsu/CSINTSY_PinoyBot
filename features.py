@@ -1,12 +1,7 @@
 """
 features.py
 
-Shared feature extraction logic for PinoyBot.
-
-This module is imported by BOTH train_model.py (to build the training
-feature matrix) and pinoybot.py (to build features for new input at
-prediction time). Keeping the logic in one place guarantees that training
-and prediction always use identical features.
+Shared feature extraction logic for PinoyBot used by both pinoybot.py and train_model.py
 """
 
 
